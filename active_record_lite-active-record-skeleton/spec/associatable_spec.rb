@@ -8,6 +8,7 @@ describe "associatable" do
     DBConnection.open(cats_db_file_name)
 
     class Cat < SQLObject
+      extend Associatable
       set_table_name("cats")
       my_attr_accessible(:id, :name, :owner_id)
 
@@ -16,6 +17,7 @@ describe "associatable" do
     end
 
     class Human < SQLObject
+      extend Associatable
       set_table_name("humans")
       my_attr_accessible(:id, :fname, :lname, :house_id)
 

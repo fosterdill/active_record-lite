@@ -6,11 +6,13 @@ describe "searchable" do
     DBConnection.open(cats_db_file_name)
 
     class Cat < SQLObject
+      extend Searchable
       set_table_name("cats")
       my_attr_accessible(:id, :name, :owner_id)
     end
 
     class Human < SQLObject
+      extend Searchable
       set_table_name("humans")
       my_attr_accessible(:id, :fname, :lname, :house_id)
     end
